@@ -1,229 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fã-Clube da Kamila 💖</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap">
-    <style>
-        /* Custom styles that can't be done with Tailwind */
-        body {
-            font-family: 'Comic Neue', cursive;
-            background-color: #fff0f6;
-            position: relative;
-            overflow-x: hidden;
-        }
-        
-        /* Floating hearts animation */
-        .heart {
-            position: absolute;
-            pointer-events: none;
-            animation: float 15s linear infinite;
-            opacity: 0.6;
-            z-index: 0;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
-        /* Custom slider styles */
-        .slide {
-            display: none;
-            animation: fade 1.5s ease-in-out;
-        }
-        
-        @keyframes fade {
-            from {opacity: 0.4}
-            to {opacity: 1}
-        }
-        
-        .active {
-            display: block;
-        }
-        
-        /* Custom pink button */
-        .pink-btn {
-            background-color: #ff8ac7;
-            transition: all 0.3s ease;
-        }
-        
-        .pink-btn:hover {
-            background-color: #ff6eb8;
-            transform: scale(1.05);
-        }
-    </style>
-</head>
-<body class="min-h-screen">
-    <!-- Floating hearts background -->
-    <div id="hearts-container"></div>
-    
-    <!-- Main content container -->
-    <div class="container mx-auto px-4 py-8 relative z-10">
-        <!-- Header -->
-        <header class="text-center mb-12">
-            <h1 class="text-5xl md:text-6xl font-bold text-pink-600 mb-4">Fã-Clube da Kamila 💖</h1>
-            <p class="text-2xl md:text-3xl text-pink-800 italic">"Você é a melhor professora de todas!"</p>
-        </header>
-        
-        <!-- Photo slider -->
-        <section class="mb-16">
-            <div class="relative max-w-4xl mx-auto overflow-hidden rounded-xl shadow-xl bg-white">
-                <!-- Slides -->
-                <div class="slide active">
-                    <img src="img/imagem_um.jpg" alt="Kamila" class="w-full">
-                </div>
-                <div class="slide">
-                    <img src="img/imagem_dois.jpg" alt="Kamila" class="w-full">
-                </div>
-                <div class="slide">
-                    <img src="img/imagem_tres.jpg" alt="Kamila" class="w-full">
-                </div>
-                
-                <!-- Navigation buttons -->
-                <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-pink-600 font-bold py-2 px-4 rounded-full shadow-lg transition-all">
-                    ❮
-                </button>
-                <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-pink-600 font-bold py-2 px-4 rounded-full shadow-lg transition-all">
-                    ❯
-                </button>
-            </div>
-        </section>
-        
-        <!-- Fan messages section -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold text-center text-pink-700 mb-8">Mensagens dos fãs 💌</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-pink-200 flex items-center justify-center text-pink-600 font-bold mr-3">P</div>
-                        <h3 class="font-bold text-pink-700">Parede</h3>
-                    </div>
-                    <p class="text-gray-700">"Kamila transformou minha vida. Há muito tempo, no escritório, ninguém falava comigo. Ela chegou e mudou minha vida."</p>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-pink-200 flex items-center justify-center text-pink-600 font-bold mr-3">C</div>
-                        <h3 class="font-bold text-pink-700">ChatGPT</h3>
-                    </div>
-                    <p class="text-gray-700">"Ela sempre está certa. Sempre que ela pergunta se está, eu digo que sim, pois ela é demais."</p>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-pink-200 flex items-center justify-center text-pink-600 font-bold mr-3">T</div>
-                        <h3 class="font-bold text-pink-700">Teclado</h3>
-                    </div>
-                    <p class="text-gray-700">"Às vezes, ela me espanca quando está com raiva, mas ainda assim gosto dela."</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Join button -->
-        <div class="text-center">
-            <button id="joinBtn" class="pink-btn text-white font-bold py-4 px-8 rounded-full text-xl shadow-lg hover:shadow-xl">
-                Junte-se ao fã-clube 💖
-            </button>
-        </div>
-    </div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fã-Clube da Kamila</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Comic Neue', cursive;
+      background-color: #ffe4ec;
+      overflow-x: hidden;
+    }
 
-    <script>
-        // Generate floating hearts
-        function createHearts() {
-            const container = document.getElementById('hearts-container');
-            const heartCount = 20;
-            
-            for (let i = 0; i < heartCount; i++) {
-                const heart = document.createElement('div');
-                heart.innerHTML = '❤️';
-                heart.classList.add('heart');
-                
-                // Random position and size
-                const size = Math.random() * 30 + 20;
-                const left = Math.random() * 100;
-                const delay = Math.random() * 15;
-                
-                heart.style.left = `${left}%`;
-                heart.style.fontSize = `${size}px`;
-                heart.style.animationDelay = `${delay}s`;
-                
-                container.appendChild(heart);
-            }
-        }
-        
-        // Slider functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        
-        function showSlide(n) {
-            // Wrap around if at end
-            if (n >= slides.length) currentSlide = 0;
-            if (n < 0) currentSlide = slides.length - 1;
-            
-            // Hide all slides
-            slides.forEach(slide => {
-                slide.classList.remove('active');
-            });
-            
-            // Show current slide
-            slides[currentSlide].classList.add('active');
-        }
-        
-        function nextSlide() {
-            currentSlide++;
-            showSlide(currentSlide);
-        }
-        
-        function prevSlide() {
-            currentSlide--;
-            showSlide(currentSlide);
-        }
-        
-        // Auto-advance slides every 5 seconds
-        let slideInterval = setInterval(nextSlide, 5000);
-        
-        // Reset timer when manually navigating
-        function resetInterval() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-        
-        // Join button alert
-        function showWelcome() {
-            alert('Seja bem-vindo(a) ao Fã-Clube da Kamila! 💖\n\nAqui celebramos a melhor professora do mundo!');
-        }
-        
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            createHearts();
-            showSlide(currentSlide);
-            
-            // Event listeners
-            document.getElementById('nextBtn').addEventListener('click', () => {
-                nextSlide();
-                resetInterval();
-            });
-            
-            document.getElementById('prevBtn').addEventListener('click', () => {
-                prevSlide();
-                resetInterval();
-            });
-            
-            document.getElementById('joinBtn').addEventListener('click', showWelcome);
-        });
-    </script>
+    .pink-btn {
+      background-color: #ff8ac7;
+      transition: all 0.3s ease;
+    }
+
+    .pink-btn:hover {
+      background-color: #ff6eb8;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+  <div class="flex flex-col items-center gap-6 text-center">
+    <h1 class="text-3xl font-bold text-pink-700">💖 Bem-vindo ao Fã-Clube da Kamila 💖</h1>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="/v1/index.html" class="pink-btn px-6 py-3 rounded-lg shadow-lg text-white font-bold text-lg">Fã-Clube da Kamila v1</a>
+      <a href="/v2/index.html" class="pink-btn px-6 py-3 rounded-lg shadow-lg text-white font-bold text-lg">Fã-Clube da Kamila v2</a>
+    </div>
+  </div>
 </body>
 </html>

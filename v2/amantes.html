@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <title>Amantes Kamila 💖</title>
+  <style>
+    body {
+      background-color: #ffe4ec;
+      font-family: 'Comic Neue', cursive;
+    }
+
+    .pink-border {
+      border: 2px solid #ff6eb8;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mx-auto p-6">
+    <a href="index.html">
+      <button class="absolute top-4 left-4 flex items-center text-[#ff6eb8] font-bold text-lg hover:underline">
+        ← Voltar
+      </button></a>
+    <h1 class="text-3xl font-bold mb-6 text-center">Amantes da Kamila</h1>
+
+    <!-- Área dos comentários -->
+    <div id="comments" class="flex flex-wrap gap-4 justify-center">
+      <!-- Comentário inicial -->
+      <div class="w-full sm:w-1/2 lg:w-1/3 p-4 pink-border rounded-lg bg-[#ff8ac7]/20">
+        <h3 class="text-xl font-semibold mb-2 text-[#ff6eb8]">Parede</h3>
+        <p>Ela é a melhor. Amo ela de todo meu coração!</p>
+      </div>
+    </div>
+
+    <!-- Formulário -->
+    <h2 class="text-2xl font-semibold mt-8 mb-4 text-center">Escreva seu comentário sobre o quanto ama a Kamila</h2>
+    <form id="commentForm" class="flex flex-col gap-4 max-w-md mx-auto">
+      <label class="flex flex-col">
+        <span class="mb-1">Seu nome:</span>
+        <input id="nameInput" type="text" class="p-2 rounded-md pink-border" required />
+      </label>
+
+      <label class="flex flex-col">
+        <span class="mb-1">Comentário:</span>
+        <textarea id="textInput" rows="4" class="p-2 rounded-md pink-border resize-none"
+          placeholder="Escreva o que acha dela" required></textarea>
+      </label>
+
+      <button type="submit"
+        class="self-start bg-[#ff8ac7] hover:bg-[#ff6eb8] text-white font-bold py-2 px-6 rounded-md transition">
+        Enviar
+      </button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('commentForm');
+    const nameEl = document.getElementById('nameInput');
+    const textEl = document.getElementById('textInput');
+    const list = document.getElementById('comments');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = nameEl.value.trim();
+      const text = textEl.value.trim();
+      if (!name || !text) return;
+
+      // Cria card
+      const card = document.createElement('div');
+      card.className = 'w-full sm:w-1/2 lg:w-1/3 p-4 pink-border rounded-lg bg-[#ff8ac7]/10';
+      card.innerHTML = `
+        <h3 class="text-xl font-semibold mb-2 text-[#ff6eb8]">${name}</h3>
+        <p>${text}</p>
+      `;
+      list.appendChild(card);
+
+      form.reset();
+      nameEl.focus();
+    });
+  </script>
+</body>
+
+</html>
